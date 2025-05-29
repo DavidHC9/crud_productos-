@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas Académicas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        #profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #profile img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #form-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #tabla-productos {
+            margin: auto;
+            width: 90%;
+        }
+
+        #footer-image {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #footer-image img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="profile">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQFC8GrrLnzOmA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1694716013597?e=2147483647&v=beta&t=WMHrx6zKpFd9yDaKj4phMWVGSs6lJjj7SP2IKYycf14" alt="Foto de perfil de Feibert">
+    </div>
+
+    <h1>Notas Académicas Feibert</h1>
+
+    <div id="form-container">
+        <h2>Gestión de Notas</h2>
+        <div class="form-group">
+            <label for="nombre">Nombre del Estudiante</label>
+            <input type="text" id="nombre" placeholder="Ingrese el nombre del estudiante">
+        </div>
+        <div class="form-group">
+            <label for="Nota">Nota</label>
+            <input type="number" id="Nota" step="0.1" min="0" max="10">
+        </div>
+        <div class="form-group">
+            <label for="Materia">Materia</label>
+            <textarea id="Materia" placeholder="Ingrese la materia"></textarea>
+        </div>
+        <button onclick="guardarProducto()" class="neumorphic-button">Guardar Nota</button>
+        <button onclick="limpiarFormulario()" class="neumorphic-button">Limpiar Formulario</button>
+        <div id="message"></div>
+    </div>
+
+    <h2 style="text-align:center;">Listado de Notas</h2>
+    <table id="tabla-productos">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Nota</th>
+                <th>Materia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <div id="footer-image">
+        <img src="https://cdn.pixabay.com/photo/2015/01/08/18/24/student-593321_1280.jpg" alt="Estudiante tomando apuntes">
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
